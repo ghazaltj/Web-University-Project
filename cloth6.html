@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="fa-IR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>فروشگاه اینترنتی ما</title>
+    <style>
+      #body {
+        background-color: white;
+      }
+
+      .container {
+        display: flex;
+        min-height: 100vh;
+      }
+
+      .sidebar {
+        width: 250px;
+        background-color: #f4f4f4;
+        padding: 20px;
+      }
+
+      .main-content {
+        flex: 1;
+        padding: 20px;
+        position: relative; /* For absolute positioning of cart-button */
+      }
+
+      .sidebar ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      .sidebar li {
+        margin: 10px 0;
+      }
+
+      .sidebar a {
+        text-decoration: none;
+        color: #333;
+      }
+
+      #cloth {
+        display: flex;
+        gap: 20px;
+        align-items: flex-start;
+      }
+
+      #clothimg {
+        flex: 0 0 auto;
+        max-width: 600px;
+      }
+
+      #cloth img {
+        max-width: 600px;
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+      }
+
+      .cloth-details {
+        flex: 1;
+        text-align: right;
+        margin: 10px;
+      }
+
+      .cloth-name {
+        font-size: 20px;
+        text-align: right;
+      }
+
+      #cloth-price {
+        font-size: 18px;
+        text-align: right;
+        color: rgb(121, 95, 61);
+      }
+
+      #cloth-fit {
+        font-size: 16px;
+        text-align: right;
+        color: rgb(121, 95, 61);
+      }
+
+      .description {
+        text-align: right;
+        font-size: 18px;
+        color: rgba(0, 0, 0, 0.468);
+        font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+          "Lucida Sans", Arial, sans-serif;
+      }
+
+      .detail-header {
+        font-size: 18px;
+        text-align: right;
+        color: rgb(121, 95, 61);
+      }
+
+      #cart-button {
+        border: none;
+        color: rgb(0, 0, 0);
+        background-color: rgba(98, 150, 113, 0.456);
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        font-size: 16px;
+        margin: 55px;
+        width: 40vw; /* Responsive width */
+        max-width: 700px;
+        min-width: 200px;
+        cursor: pointer;
+        display: block;
+      }
+
+      footer {
+        background-color: #f4f4f4;
+        padding: 20px;
+        text-align: center;
+        border-top: 1px solid #ddd;
+        margin-top: 20px;
+      }
+
+      footer ul {
+        list-style: none;
+        padding: 0;
+        margin: 10px 0;
+      }
+
+      footer li {
+        display: inline;
+        margin: 0 15px;
+      }
+
+      footer a {
+        text-decoration: none;
+        color: #6a6a6a;
+      }
+
+      footer p {
+        margin: 30px;
+        font-size: 14px;
+        color: #6a6a6a;
+      }
+
+      @media (min-width: 781px) {
+        #cart-button {
+          position: absolute;
+          bottom: 20px;
+          left: 20px;
+          width: 30vw;
+          max-width: 400px;
+        }
+      }
+
+      @media (max-width: 780px) {
+        .container {
+          flex-direction: column;
+        }
+
+        .sidebar {
+          width: 100%;
+          text-align: center;
+        }
+
+        #cloth {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        #clothimg {
+          text-align: center;
+          max-width: 450px;
+        }
+
+        #cloth img {
+          max-width: 450px;
+          width: 100%;
+        }
+
+        .cloth-details {
+          text-align: center;
+        }
+
+        .cloth-name,
+        #cloth-price,
+        .description {
+          margin: 10px 0;
+        }
+
+        #cart-button {
+          width: 80vw;
+          max-width: 450px;
+          margin: 10px auto;
+        }
+      }
+    </style>
+  </head>
+  <body id="body">
+    <div class="container">
+      <aside class="sidebar">
+        <ul>
+          <li><a href="index.html">خانه</a></li>
+          <li><a href="#">محصولات</a></li>
+          <li><a href="#">درباره ما</a></li>
+          <li><a href="#">تماس با ما</a></li>
+        </ul>
+      </aside>
+      <main class="main-content">
+        <div id="cloth">
+          <div id="clothimg">
+            <img src="Images/cloth6.jpg" alt="پیراهن آستین بلند مشکی" />
+          </div>
+          <div class="cloth-details">
+            <p class="cloth-name">پیراهن آستین بلند مشکی</p>
+            <p id="cloth-fit">تن‌خوری: معمولی</p>
+            <p id="cloth-price">5,500,000 تومان</p>
+            <div>
+              <h5 class="detail-header">شرح محصول</h5>
+              <p class="description">
+                پیراهن‌های کلاسیک هاکوپیان در طیف متنوعی از رنگ‌ و طرح‌ ارائه
+                می‌شوند. در این پیراهن‌ها هیچ‌گونه الیاف مصنوعی استفاده نشده است
+                و کلیه پارچه‌ها از الیاف پنبه تولید شده‌اند. پارچه این پیراهن‌ها
+                به دلیل آن که مانع از گردش هوا نمی‌شود خنک‌تر از سایر پارچه‌ها
+                است، همچنین به‌ راحتی شسته و تمیز می‌شوند. پارچه‌های استفاده‌شده
+                در این پیراهن‌ها به دلیل طبیعی بودن الیاف چروک پذیرند بنابراین
+                دانستن نحوه صحیح استفاده و مراقبت از آن‌ها لازم و ضروری است.
+              </p>
+              <h5 class="detail-header">مشخصات محصول</h5>
+              <pre class="description">
+کدکالا: 112-6636501
+ترکیبات پارچه: 100% پنبه
+قد: متوسط
+کشور تولید کننده پارچه: ترکیه
+فصل: همه فصول
+زمان تولید: کلکسیون 24-2023</pre
+              >
+
+              <h5 class="detail-header">مورد استفاده</h5>
+              <p class="description">اداری، رسمی</p>
+            </div>
+          </div>
+        </div>
+        <button id="cart-button">افزودن به سبد خرید</button>
+      </main>
+    </div>
+    <footer>
+      <h1>HACOUPIAN 1970</h1>
+      <p>
+        اکنون با نیم قرن تجربه، هاکوپیان دیگر فقط عرضه‌کننده‌ی یک کالا نیست،
+        بلکه نمادی از یک برند فاخر و خوش نام ایرانی است؛ زیرا باور دارد ایرانیان
+        از دیرباز یکی از شیک‌پوش‌ترین مردمان جهان بوده و هستند و همواره کوشیده
+        تا سلیقه‌های گوناگون ایشان را در طراحی‌های خود مدنظر قرار دهد. هاکوپیان
+        سال‌هاست در طراحی و تولید به آفرینش زیبایی می‌اندیشد.
+      </p>
+      <ul>
+        <li><a href="index.html">صفحه اصلی</a></li>
+        <li><a href="#">محصولات</a></li>
+        <li><a href="#">درباره ما</a></li>
+        <li><a href="#">تماس با ما</a></li>
+      </ul>
+      <p>کليه حقوق محصولات و محتوای اين سایت متعلق به هاکوپیان است.</p>
+      <p>&COPY; 1970-2024 Hacoupian. All rights reserved.</p>
+      <!-- <p>تماس: info@ourshop.com | تلفن: ۱۲۳۴-۵۶۷-۸۹۰</p> -->
+    </footer>
+  </body>
+</html>
