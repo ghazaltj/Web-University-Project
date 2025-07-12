@@ -92,6 +92,10 @@
         color: #333;
       }
 
+      .sidebar a:hover {
+        color: #9b7272;
+      }
+
       footer {
         background-color: #f4f4f4;
         padding: 20px;
@@ -120,6 +124,31 @@
         margin: 30px;
         font-size: 14px;
         color: #6a6a6a;
+      }
+
+      footer a:hover {
+        color: black;
+      }
+
+      #cloth-preview img {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+          0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        transition: 0.9s ease-in;
+      }
+
+      #cloth-preview a {
+        text-decoration: none;
+        color: black;
+      }
+
+      #cloth-preview a:hover {
+        color: #9b7272;
+      }
+
+      #cloth-preview a:hover img {
+        box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+        opacity: 0.8;
+        transition: 0.9s ease;
       }
 
       @media (min-width: 1300px) {
@@ -188,7 +217,7 @@
         </ul>
       </aside>
       <main class="main-content">
-        <div id="logo"><img id="logo-img" src="Images/logo.png" alt="" /></div>
+        <div id="logo"><img id="logo-img" src="Images/logo.png" alt="logo" /></div>
         <div id="headerimg">
           <img
             src="Images/Screenshot 2025-07-08 155841.png"
@@ -196,7 +225,7 @@
           />
         </div>
         <div id="cloth-preview">
-          <a href="cloth1.html" style="text-decoration: none; color: inherit">
+          <a href="cloth1.html">
             <div class="single-cloth-preview">
               <img
                 id="cloth-img1"
@@ -207,7 +236,7 @@
               <span class="cloth-price">7,150,000 تومان</span>
             </div>
           </a>
-          <a href="cloth2.html" style="text-decoration: none; color: inherit">
+          <a href="cloth2.html">
             <div class="single-cloth-preview">
               <img
                 id="cloth-img2"
@@ -218,7 +247,7 @@
               <span class="cloth-price">7,150,000 تومان</span>
             </div>
           </a>
-          <a href="cloth3.html" style="text-decoration: none; color: inherit">
+          <a href="cloth3.html">
             <div class="single-cloth-preview">
               <img
                 id="cloth-img3"
@@ -229,7 +258,7 @@
               <span class="cloth-price">7,150,000 تومان</span>
             </div>
           </a>
-          <a href="cloth4.html" style="text-decoration: none; color: inherit">
+          <a href="cloth4.html">
             <div class="single-cloth-preview">
               <img
                 id="cloth-img4"
@@ -240,7 +269,7 @@
               <span class="cloth-price">4,950,000 تومان</span>
             </div>
           </a>
-          <a href="cloth5.html" style="text-decoration: none; color: inherit">
+          <a href="cloth5.html">
             <div>
               <img
                 id="cloth-img5"
@@ -251,7 +280,7 @@
               <span class="cloth-price">6,600,000 تومان</span>
             </div>
           </a>
-          <a href="cloth6.html" style="text-decoration: none; color: inherit">
+          <a href="cloth6.html">
             <div>
               <img
                 id="cloth-img6"
