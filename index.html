@@ -155,7 +155,7 @@
       align-items: center;
       text-align: center;
       width: 100%;
-    
+
     }
 
     .single-cloth-preview img {
@@ -185,6 +185,27 @@
     .cart-button:hover {
       background-color: rgba(98, 150, 113, 0.679);
       color: black;
+    }
+
+    .cart-header-button {
+      position: absolute;
+      top: 30px;
+      left: 30px;
+      z-index: 100;
+      border: none;
+      background-color: transparent;
+      cursor: pointer;
+      transition: 0.3s;
+      padding: 0;
+    }
+
+    .cart-header-button img {
+      width: 35px;
+      height: 35px;
+    }
+
+    .cart-header-button:hover img {
+      opacity: 0.8;
     }
 
 
@@ -246,6 +267,7 @@
 
 <body id="body">
   <div class="container">
+
     <aside class="sidebar">
       <ul>
         <li><a href="index.html">Home</a></li>
@@ -254,11 +276,19 @@
         <li><a href="#">Contact</a></li>
       </ul>
     </aside>
+
+    <button class="cart-header-button" title="سبد خرید">
+      <img src="Images/cart2.png" alt="Cart" />
+    </button>
     <main class="main-content">
-      <div id="logo"><img id="logo-img" src="Images/logo.png" alt="logo" /></div>
+      <div id="logo">
+        <img id="logo-img" src="Images/logo.png" alt="logo" />
+      </div>
+
       <div id="headerimg">
         <img src="Images/Screenshot 2025-07-08 155841.png" alt="Shop Header" />
       </div>
+
       <div id="cloth-preview">
         <a href="cloth1.html">
           <div class="single-cloth-preview">
