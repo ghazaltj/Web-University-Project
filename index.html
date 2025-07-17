@@ -155,7 +155,7 @@
       align-items: center;
       text-align: center;
       width: 100%;
-    
+
     }
 
     .single-cloth-preview img {
@@ -169,7 +169,7 @@
       margin-bottom: 10px;
     }
 
-    .cart-button {
+    .add-to-cart-button {
       border: none;
       color: rgba(0, 0, 0, 0.679);
       background-color: rgba(98, 150, 113, 0.456);
@@ -182,10 +182,38 @@
       transition: background-color 0.3s ease, color 0.3s ease;
     }
 
-    .cart-button:hover {
+    .add-to-cart-button:hover {
       background-color: rgba(98, 150, 113, 0.679);
       color: black;
     }
+
+    #logo {
+      text-align: center;
+      margin: 0;
+    }
+
+    #cart-icon {
+      position: absolute;
+      top: 0;
+      left: 15px;
+      width: 45px;
+      height: auto;
+      cursor: pointer;
+      z-index: 100;
+      transition: transform 0.3s ease;
+    }
+
+    #cart-icon:hover {
+      transform: scale(1.1);
+    }
+
+    #num-of-cart{
+      position: absolute;
+      left: 34px;
+      bottom: 104px;
+      
+    }
+
 
 
     @media (min-width: 1300px) {
@@ -255,7 +283,15 @@
       </ul>
     </aside>
     <main class="main-content">
-      <div id="logo"><img id="logo-img" src="Images/logo.png" alt="logo" /></div>
+      <div style="position: relative;">
+        <a href="cart.html">
+          <img id="cart-icon" src="Images/cart.webp" alt="سبد خرید" />
+          <p id="num-of-cart">0</p>
+        </a>
+        <div id="logo">
+          <img id="logo-img" src="Images/logo.png" alt="لوگو" />
+        </div>
+      </div>
       <div id="headerimg">
         <img src="Images/Screenshot 2025-07-08 155841.png" alt="Shop Header" />
       </div>
@@ -265,7 +301,7 @@
             <img id="cloth-img1" src="Images/cloth1.jpg" alt="پیراهن استین بلند راه راه آبی" />
             <p class="cloth-name">پیراهن آستین بلند راه راه آبی</p>
             <span class="cloth-price">7,150,000 تومان</span>
-            <button class="cart-button">افزودن به سبد خرید</button>
+            <button class="add-to-cart-button">افزودن به سبد خرید</button>
           </div>
         </a>
         <a href="cloth2.html">
@@ -273,7 +309,7 @@
             <img id="cloth-img2" src="Images/cloth2.jpg" alt="پیراهن سفید ساده" />
             <p class="cloth-name">پیراهن سفید ساده</p>
             <span class="cloth-price">7,150,000 تومان</span>
-            <button class="cart-button">افزودن به سبد خرید</button>
+            <button class="add-to-cart-button">افزودن به سبد خرید</button>
           </div>
         </a>
         <a href="cloth3.html">
@@ -281,7 +317,7 @@
             <img id="cloth-img3" src="Images/cloth3.jpg" alt=" پیراهن آستین بلند صورتی" />
             <p class="cloth-name">پیراهن آستین بلند صورتی</p>
             <span class="cloth-price">7,150,000 تومان</span>
-            <button class="cart-button">افزودن به سبد خرید</button>
+            <button class="add-to-cart-button">افزودن به سبد خرید</button>
           </div>
         </a>
         <a href="cloth4.html">
@@ -289,7 +325,7 @@
             <img id="cloth-img4" src="Images/cloth4.jpg" alt="تیشرت پنبه طوسی" />
             <p class="cloth-name">تیشرت پنبه ای طوسی</p>
             <span class="cloth-price">4,950,000 تومان</span>
-            <button class="cart-button">افزودن به سبد خرید</button>
+            <button class="add-to-cart-button">افزودن به سبد خرید</button>
           </div>
         </a>
         <a href="cloth5.html">
@@ -297,7 +333,7 @@
             <img id="cloth-img5" src="Images/cloth5.jpg" alt="پیراهن سفید ساده" />
             <p class="cloth-name">پیراهن آستین بلند سفید</p>
             <span class="cloth-price">6,600,000 تومان</span>
-            <button class="cart-button">افزودن به سبد خرید</button>
+            <button class="add-to-cart-button">افزودن به سبد خرید</button>
           </div>
         </a>
         <a href="cloth6.html">
@@ -305,7 +341,7 @@
             <img id="cloth-img6" src="Images/cloth6.jpg" alt="پیراهن آستین بلند مشکی" />
             <p class="cloth-name">پیراهن آستین بلند مشکی</p>
             <span class="cloth-price">5,500,000 تومان</span>
-            <button class="cart-button">افزودن به سبد خرید</button>
+            <button class="add-to-cart-button">افزودن به سبد خرید</button>
           </div>
         </a>
       </div>
