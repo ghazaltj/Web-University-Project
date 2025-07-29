@@ -23,34 +23,6 @@ All product and cart data are managed dynamically via a RESTful backend.
 
 ---
 
-## Project Structure
-
-Web-University-Project-main/
-├── backend/
-│ ├── index.js
-│ ├── models/
-│ ├── routes/
-│ ├── seedProducts.js
-│ └── ... (Node.js backend code)
-├── index.html
-├── add-product.html
-├── cart.html
-├── login.html
-├── product.html
-├── script.js
-├── style.css
-├── Images/
-│ ├── cloth1.jpg
-│ ├── cloth2.jpg
-│ └── ... (product images)
-└── README.md
-
-yaml
-Copy
-Edit
-
----
-
 ## How to Run
 
 ### 1. Run the Backend (Node.js + Express)
