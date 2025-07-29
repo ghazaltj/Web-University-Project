@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="fa-IR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>سبد خرید</title>
+  <style>
+    body {
+      background-color: #ffffff;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .container {
+      display: flex;
+      min-height: 100vh;
+    }
+
+    .sidebar {
+      width: 250px;
+      background-color: #f4f4f4;
+      padding: 20px;
+    }
+
+    .sidebar ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .sidebar li {
+      margin: 10px 0;
+    }
+
+    .sidebar a {
+      text-decoration: none;
+      color: #333;
+    }
+
+    .sidebar a:hover {
+      color: #9b7272;
+    }
+
+    .cart-content {
+      flex: 1;
+      padding: 20px;
+    }
+
+    h2 {
+      margin-top: 0;
+      margin-bottom: 20px;
+      font-size: 24px;
+    }
+
+    #cart-items {
+      margin-bottom: 20px;
+    }
+
+    .cart-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #eee;
+      padding: 10px 0;
+    }
+
+    .cart-item img {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      margin-left: 10px;
+    }
+
+    .cart-item .details {
+      flex: 1;
+      text-align: right;
+      margin-right: 10px;
+    }
+
+    .cart-item .details p {
+      margin: 0;
+    }
+
+    .quantity-controls {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .quantity-controls button {
+      padding: 4px 10px;
+      border: none;
+      background-color: #e0e0e0;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .quantity-controls span {
+      min-width: 20px;
+      text-align: center;
+    }
+
+    .remove-item {
+      background-color: #e72c27;
+      color: #fff;
+      border: none;
+      padding: 4px 8px;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    .remove-item:hover {
+      background-color: #b21916;
+    }
+
+    .total {
+      font-size: 18px;
+      text-align: right;
+    }
+
+    #clear-cart {
+      margin-top: 10px;
+      padding: 8px 16px;
+      background-color: #9b7272;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    #clear-cart:hover {
+      background-color: #7a5858;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <aside class="sidebar">
+      <ul>
+        <li><a href="index.html">خانه</a></li>
+        <li><a href="index.html">محصولات</a></li>
+        <li><a href="login.html">ورود/ثبت‌نام</a></li>
+        <li><a href="add-product.html">افزودن محصول</a></li>
+      </ul>
+    </aside>
+    <main class="cart-content">
+      <div style="position: relative;">
+        <a href="cart.html">
+          <img id="cart-icon" src="Images/cart.webp" alt="سبد خرید"
+            style="position:absolute; top:0; left:15px; width:45px; cursor:pointer;" />
+          <p id="cart-count" style="position:absolute; left:34px; bottom:104px;">0</p>
+        </a>
+        <div id="logo" style="text-align:center; margin:0;">
+          <img id="logo-img" src="Images/logo.png" alt="لوگو" style="width:150px;" />
+        </div>
+      </div>
+      <h2>سبد خرید شما</h2>
+      <div id="cart-items"></div>
+      <p class="total">مبلغ کل: <span id="total-price">0</span> تومان</p>
+      <button id="clear-cart">خالی کردن سبد</button>
+    </main>
+  </div>
+  <script src="script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      updateCartCount();
+      const cartItemsContainer = document.getElementById('cart-items');
+      const totalPriceEl = document.getElementById('total-price');
+      async function renderCart() {
+        const items = await fetchCart();
+        cartItemsContainer.innerHTML = '';
+        let total = 0;
+        items.forEach((item) => {
+          const product = item.product;
+          const qty = item.quantity;
+          const price = product.price * qty;
+          total += price;
+          const itemDiv = document.createElement('div');
+          itemDiv.className = 'cart-item';
+          const priceFormatted = Number(product.price).toLocaleString('fa-IR');
+          itemDiv.innerHTML = `
+            <img src="Images/${product.image || 'default.jpg'}" alt="${product.name}">
+            <div class="details">
+              <p>${product.name}</p>
+              <p>${priceFormatted} تومان</p>
+            </div>
+            <div class="quantity-controls" data-id="${product._id || product.id}">
+              <button class="decrease">−</button>
+              <span class="quantity">${qty}</span>
+              <button class="increase">+</button>
+            </div>
+            <button class="remove-item" data-id="${product._id || product.id}">حذف</button>
+          `;
+          cartItemsContainer.appendChild(itemDiv);
+        });
+        totalPriceEl.innerText = total.toLocaleString('fa-IR');
+        if (items.length === 0) {
+          cartItemsContainer.innerHTML = '<p>سبد خرید شما خالی است.</p>';
+        }
+      }
+      renderCart();
+      cartItemsContainer.addEventListener('click', async function (e) {
+        const target = e.target;
+        if (target.classList.contains('increase')) {
+          const id = target.parentElement.getAttribute('data-id');
+          const currentQty = parseInt(target.parentElement.querySelector('.quantity').innerText);
+          const newQty = currentQty + 1;
+          await updateCartItem(id, newQty);
+          await renderCart();
+          updateCartCount();
+        } else if (target.classList.contains('decrease')) {
+          const id = target.parentElement.getAttribute('data-id');
+          const currentQty = parseInt(target.parentElement.querySelector('.quantity').innerText);
+          const newQty = currentQty - 1;
+          if (newQty > 0) {
+            await updateCartItem(id, newQty);
+          } else {
+            await removeCartItem(id);
+          }
+          await renderCart();
+          updateCartCount();
+        } else if (target.classList.contains('remove-item')) {
+          const id = target.getAttribute('data-id');
+          await removeCartItem(id);
+          await renderCart();
+          updateCartCount();
+        }
+      });
+      document.getElementById('clear-cart').addEventListener('click', async function () {
+        await clearCartOnServer();
+        await renderCart();
+        updateCartCount();
+      });
+    });
+  </script>
+</body>
+
+</html>

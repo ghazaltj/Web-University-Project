@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="fa-IR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>جزئیات محصول</title>
+
+  <style>
+    body {
+      background-color: white;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .container {
+      display: flex;
+      min-height: 100vh;
+    }
+
+    .main-content {
+      flex: 1;
+      padding: 20px;
+      position: relative;
+    }
+
+    .sidebar {
+      width: 250px;
+      background-color: #f4f4f4;
+      padding: 20px;
+    }
+
+    .sidebar ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .sidebar li {
+      margin: 10px 0;
+    }
+
+    .sidebar a {
+      text-decoration: none;
+      color: #333;
+    }
+
+    .sidebar a:hover {
+      color: #9b7272;
+    }
+
+    #cart-icon {
+      position: absolute;
+      top: 0;
+      left: 15px;
+      width: 45px;
+      height: auto;
+      cursor: pointer;
+      z-index: 100;
+      transition: transform 0.3s ease;
+    }
+
+    #cart-icon:hover {
+      transform: scale(1.1);
+    }
+
+    #cart-count {
+      position: absolute;
+      top: 5px;
+      left: 50px;
+      background-color: #e72c27;
+      color: #fff;
+      border-radius: 9999px;
+      padding: 2px 6px;
+      font-size: 14px;
+      line-height: 1;
+      min-width: 24px;
+      text-align: center;
+      pointer-events: none;
+    }
+
+    #logo {
+      text-align: center;
+      margin: 0px;
+    }
+
+    #logo-img {
+      width: 150px;
+    }
+
+    #cloth {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+
+    #clothimg {
+      flex: 0 0 auto;
+      max-width: 500px;
+    }
+
+    #cloth img {
+      max-width: 600px;
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+
+    .cloth-details {
+      flex: 1;
+      text-align: right;
+      margin: 10px;
+    }
+
+    .cloth-name {
+      font-size: 20px;
+      text-align: right;
+    }
+
+    #cloth-price {
+      font-size: 18px;
+      text-align: right;
+      color: rgb(121, 95, 61);
+    }
+
+    #cloth-fit {
+      font-size: 16px;
+      text-align: right;
+      color: rgb(121, 95, 61);
+    }
+
+    .description {
+      text-align: right;
+      font-size: 18px;
+      color: rgba(0, 0, 0, 0.468);
+      font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+        "Lucida Sans", Arial, sans-serif;
+      margin-bottom: 60px;
+    }
+
+    .detail-header {
+      font-size: 18px;
+      text-align: right;
+      color: rgb(121, 95, 61);
+      margin-top: 20px;
+    }
+
+    .add-to-cart-button {
+      border: none;
+      color: rgb(0, 0, 0);
+      background-color: rgba(98, 150, 113, 0.456);
+      padding: 15px 32px;
+      text-align: center;
+      font-size: 16px;
+      margin-top: 40px;
+      width: 80%;
+      max-width: 400px;
+      cursor: pointer;
+      display: block;
+    }
+
+    .add-to-cart-button:hover {
+      background-color: rgba(98, 150, 113, 0.679);
+    }
+
+    footer {
+      background-color: #f4f4f4;
+      padding: 20px;
+      text-align: center;
+      border-top: 1px solid #ddd;
+      margin-top: 20px;
+    }
+
+    footer ul {
+      list-style: none;
+      padding: 0;
+      margin: 10px 0;
+    }
+
+    footer li {
+      display: inline;
+      margin: 0 15px;
+    }
+
+    footer a {
+      text-decoration: none;
+      color: #6a6a6a;
+    }
+
+    footer p {
+      margin: 30px;
+      font-size: 14px;
+      color: #6a6a6a;
+    }
+
+    footer a:hover {
+      color: black;
+    }
+
+    @media (max-width: 780px) {
+      .container {
+        flex-direction: column;
+      }
+
+      .sidebar {
+        width: 100%;
+        text-align: center;
+      }
+
+      #cloth {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      #clothimg {
+        text-align: center;
+        max-width: 450px;
+      }
+
+      #cloth img {
+        max-width: 450px;
+        width: 100%;
+      }
+
+      .cloth-details {
+        text-align: center;
+      }
+
+      .add-to-cart-button {
+        width: 80vw;
+        max-width: 450px;
+        margin: 20px auto;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <aside class="sidebar">
+      <ul>
+        <li><a href="index.html">خانه</a></li>
+        <li><a href="index.html">محصولات</a></li>
+        <li><a href="login.html">ورود/ثبت‌نام</a></li>
+        <li><a href="add-product.html">افزودن محصول</a></li>
+      </ul>
+    </aside>
+    <main class="main-content">
+      <div style="position: relative;">
+        <a href="cart.html">
+          <img id="cart-icon" src="Images/cart.webp" alt="سبد خرید" />
+          <p id="cart-count">0</p>
+        </a>
+        <div id="logo">
+          <img id="logo-img" src="Images/logo.png" alt="لوگو" />
+        </div>
+      </div>
+      <div id="product-container">
+      </div>
+    </main>
+  </div>
+  <footer>
+    <h1>HACOUPIAN 1970</h1>
+    <p>
+      اکنون با نیم قرن تجربه، هاکوپیان دیگر فقط عرضه‌کننده‌ی یک کالا نیست،
+      بلکه نمادی از یک برند فاخر و خوش نام ایرانی است؛ زیرا باور دارد ایرانیان
+      از دیرباز یکی از شیک‌پوش‌ترین مردمان جهان بوده و هستند و همواره کوشیده
+      تا سلیقه‌های گوناگون ایشان را در طراحی‌های خود مدنظر قرار دهد. هاکوپیان
+      سال‌هاست در طراحی و تولید به آفرینش زیبایی می‌اندیشد.
+    </p>
+    <ul>
+      <li><a href="index.html">صفحه اصلی</a></li>
+      <li><a href="#">محصولات</a></li>
+      <li><a href="#">درباره ما</a></li>
+      <li><a href="#">تماس با ما</a></li>
+    </ul>
+    <p>کليه حقوق محصولات و محتوای اين سایت متعلق به هاکوپیان است.</p>
+    <p>&COPY; 1970-2024 Hacoupian. All rights reserved.</p>
+  </footer>
+  <script src="script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', async function () {
+      updateCartCount();
+      const container = document.getElementById('product-container');
+      const params = new URLSearchParams(window.location.search);
+      const id = params.get('id');
+      if (!id) {
+        container.innerHTML = '<p>شناسه محصول مشخص نیست.</p>';
+        return;
+      }
+      const product = await fetchProductById(id);
+      if (!product) {
+        container.innerHTML = '<p>محصولی با این شناسه یافت نشد.</p>';
+        return;
+      }
+      const priceFormatted = Number(product.price).toLocaleString('fa-IR');
+      const imgSrc = product.image ? 'Images/' + product.image : 'Images/default.jpg';
+      let detailsHTML = '';
+      if (product.details) {
+        detailsHTML = `<h5 class="detail-header">مشخصات محصول</h5><pre class="description">${product.details}</pre>`;
+      }
+      let usageHTML = '';
+      if (product.usage) {
+        usageHTML = `<h5 class="detail-header">مورد استفاده</h5><p class="description">${product.usage}</p>`;
+      }
+      let fitHTML = '';
+      if (product.fit) {
+        fitHTML = `<p id="cloth-fit">تن‌خوری: ${product.fit}</p>`;
+      }
+      container.innerHTML = `
+        <div id="cloth">
+          <div id="clothimg">
+            <img src="${imgSrc}" alt="${product.name}">
+          </div>
+          <div class="cloth-details">
+            <p class="cloth-name">${product.name}</p>
+            ${fitHTML}
+            <p id="cloth-price">${priceFormatted} تومان</p>
+            <div>
+              <h5 class="detail-header">شرح محصول</h5>
+              <p class="description">${product.description || ''}</p>
+              ${detailsHTML}
+              ${usageHTML}
+              <button class="add-to-cart-button" data-id="${product._id || product.id}">افزودن به سبد خرید</button>
+            </div>
+          </div>
+        </div>
+      `;
+      attachDetailPageListener();
+    });
+  </script>
+  <script>
+    async function fetchProductById(id) {
+      try {
+        const res = await fetch('http://localhost:5000/api/products/' + id);
+        if (!res.ok) return null;
+        const product = await res.json();
+        return product;
+      } catch {
+        return null;
+      }
+    }
+  </script>
+
+</body>
+
+</html>
