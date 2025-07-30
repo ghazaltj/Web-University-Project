@@ -5,275 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>فروشگاه اینترنتی ما</title>
-  <style>
-    #body {
-      background-color: white;
-    }
-
-    #logo {
-      text-align: center;
-      margin: 0px;
-    }
-
-    #logo-img {
-      width: 150px;
-    }
-
-    #cart-icon {
-      position: absolute;
-      top: 0;
-      left: 15px;
-      width: 45px;
-      height: auto;
-      cursor: pointer;
-      z-index: 100;
-      transition: transform 0.3s ease;
-    }
-
-    #cart-icon:hover {
-      transform: scale(1.1);
-    }
-
-    #cart-count {
-      position: absolute;
-      top: 5px;
-      left: 50px;
-      background-color: #e72c27;
-      color: #fff;
-      border-radius: 9999px;
-      padding: 2px 6px;
-      font-size: 14px;
-      line-height: 1;
-      min-width: 24px;
-      text-align: center;
-      pointer-events: none;
-    }
-
-    #headerimg {
-      width: 100%;
-      max-height: 600px;
-      position: relative;
-      overflow: hidden;
-      margin-bottom: 20px;
-    }
-
-    #headerimg img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .container {
-      display: flex;
-      min-height: 100vh;
-    }
-
-    .main-content {
-      flex: 1;
-      padding: 20px;
-    }
-
-    #cloth-preview {
-      margin-left: 10%;
-      width: 80%;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 20px;
-      overflow: visible;
-    }
-
-    #cloth-preview img {
-      width: 100%;
-      height: auto;
-      object-fit: cover;
-      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
-        0 6px 20px 0 rgba(0, 0, 0, 0.19);
-      transition: 0.9s ease-in;
-    }
-
-    #cloth-preview a {
-      text-decoration: none;
-      color: black;
-    }
-
-    #cloth-preview a:hover {
-      color: #9b7272;
-    }
-
-    #cloth-preview a:hover img {
-      box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.225);
-      opacity: 0.8;
-      transition: 0.9s ease;
-    }
-
-    .cloth-name {
-      font-size: 14px;
-      padding: 5px 10px;
-      margin: 0px;
-      text-align: right;
-      font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-        "Lucida Sans", Arial, sans-serif;
-    }
-
-    .cloth-price {
-      font-size: 14px;
-      padding: 5px 10px;
-      margin: 0;
-    }
-
-    .sidebar {
-      width: 250px;
-      background-color: #f4f4f4;
-      padding: 20px;
-    }
-
-    .sidebar ul {
-      list-style: none;
-      padding: 0;
-    }
-
-    .sidebar li {
-      margin: 10px 0;
-    }
-
-    .sidebar a {
-      text-decoration: none;
-      color: #333;
-    }
-
-    .sidebar a:hover {
-      color: #9b7272;
-    }
-
-    footer {
-      background-color: #f4f4f4;
-      padding: 20px;
-      text-align: center;
-      border-top: 1px solid #ddd;
-      margin-top: 20px;
-    }
-
-    footer ul {
-      list-style: none;
-      padding: 0;
-      margin: 10px 0;
-    }
-
-    footer li {
-      display: inline;
-      margin: 0 15px;
-    }
-
-    footer a {
-      text-decoration: none;
-      color: #6a6a6a;
-    }
-
-    footer p {
-      margin: 30px;
-      font-size: 14px;
-      color: #6a6a6a;
-    }
-
-    footer a:hover {
-      color: black;
-    }
-
-    .single-cloth-preview {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      width: 100%;
-
-    }
-
-    .single-cloth-preview img {
-      width: 100%;
-      max-width: 100%;
-      height: auto;
-      object-fit: cover;
-      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
-        0 6px 20px 0 rgba(0, 0, 0, 0.19);
-      transition: 0.9s ease-in;
-      margin-bottom: 10px;
-    }
-
-    .add-to-cart-button {
-      border: none;
-      color: rgba(0, 0, 0, 0.679);
-      background-color: rgba(98, 150, 113, 0.456);
-      padding: 10px 0;
-      font-size: 13px;
-      margin: 10px 0;
-      cursor: pointer;
-      width: calc(100% - 20px);
-      max-width: 100%;
-      transition: background-color 0.3s ease, color 0.3s ease;
-    }
-
-    .add-to-cart-button:hover {
-      background-color: rgba(98, 150, 113, 0.679);
-      color: black;
-    }
-
-
-
-
-    @media (min-width: 1300px) {
-      #cloth-preview {
-        grid-template-columns: repeat(3, minmax(400px, 1fr));
-      }
-    }
-
-    @media (max-width: 1299px) and (min-width: 1151px) {
-      #cloth-preview {
-        grid-template-columns: repeat(3, minmax(320px, 1fr));
-      }
-    }
-
-    @media (max-width: 1150px) and (min-width: 781px) {
-      #cloth-preview {
-        grid-template-columns: repeat(2, minmax(300px, 1fr));
-      }
-    }
-
-    @media (max-width: 780px) {
-      .container {
-        flex-direction: column;
-      }
-
-      .sidebar {
-        width: 100%;
-        text-align: center;
-      }
-
-      #headerimg {
-        max-height: 400px;
-      }
-
-      #cloth-preview {
-        margin-left: 0;
-        width: 100%;
-        grid-template-columns: repeat(2, minmax(200px, 1fr));
-      }
-    }
-
-    @media (max-width: 480px) {
-      #cloth-preview {
-        grid-template-columns: 1fr;
-      }
-
-      #cloth-preview img {
-        margin-bottom: 10px;
-      }
-
-      footer li {
-        display: block;
-        margin: 10px 0;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="Css/style.css">
 </head>
 
 <body id="body">
@@ -297,12 +29,16 @@
         </div>
       </div>
       <div id="headerimg">
-
-        <img src="Images/Screenshot 2025-07-08 155841.png" alt="تصویر سربرگ فروشگاه" />
+        <img src="Images/header-img1.png" alt="تصویر سربرگ 
+        " id="header-image" />
+        <button id="change-header-btn" aria-label="تغییر تصویر سربرگ">
+          uyggyuy</button>
+        <p id="header-error">خطا در بارگذاری تصویر</p>
       </div>
+  </div>
 
-      <div id="cloth-preview" class="cloth-preview-container"></div>
-    </main>
+  <div id="cloth-preview" class="cloth-preview-container"></div>
+  </main>
   </div>
   <footer>
     <h1>HACOUPIAN 1970</h1>
@@ -324,6 +60,53 @@
     <!-- <p>تماس: info@ourshop.com | تلفن: ۱۲۳۴-۵۶۷-۸۹۰</p> -->
   </footer>
   <script src="script.js"></script>
+  <script>
+    const headerImages = [
+      'Images/header-img1.png',
+      'Images/header-img2.png',
+      'Images/header-img3.png',
+      'Images/header-img4.png',
+      'Images/header-img5.png'
+    ];
+
+    let currentImageIndex = 0;
+
+    function preloadImages(imageArray) {
+      imageArray.forEach((src) => {
+        const img = new Image();
+        img.src = src;
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      preloadImages(headerImages);
+
+      const headerImage = document.getElementById('header-image');
+      const changeHeaderBtn = document.getElementById('change-header-btn');
+      const errorMessage = document.getElementById('header-error');
+
+      if (changeHeaderBtn && headerImage && errorMessage) {
+        headerImage.addEventListener('error', () => {
+          errorMessage.style.display = 'block';
+          headerImage.style.opacity = '0';
+        });
+
+        headerImage.addEventListener('load', () => {
+          errorMessage.style.display = 'none';
+          headerImage.style.opacity = '1';
+        });
+
+        changeHeaderBtn.addEventListener('click', () => {
+          headerImage.style.opacity = '0';
+          setTimeout(() => {
+            currentImageIndex = (currentImageIndex + 1) % headerImages.length;
+            headerImage.src = headerImages[currentImageIndex];
+            headerImage.alt = `تصویر سربرگ ${currentImageIndex + 1}`;
+          }, 300);
+        });
+      }
+    });
+  </script>
 </body>
 
 </html>
