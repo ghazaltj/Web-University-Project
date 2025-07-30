@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="fa-IR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>افزودن محصول جدید</title>
+  <style>
+    body {
+      background-color: #ffffff;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .container {
+      display: flex;
+      min-height: 100vh;
+    }
+
+    .sidebar {
+      width: 250px;
+      background-color: #f4f4f4;
+      padding: 20px;
+    }
+
+    .sidebar ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .sidebar li {
+      margin: 10px 0;
+    }
+
+    .sidebar a {
+      text-decoration: none;
+      color: #333;
+    }
+
+    .sidebar a:hover {
+      color: #9b7272;
+    }
+
+    .main-content {
+      flex: 1;
+      padding: 20px;
+      position: relative;
+    }
+
+    #cart-icon {
+      position: absolute;
+      top: 0;
+      left: 15px;
+      width: 45px;
+      height: auto;
+      cursor: pointer;
+      z-index: 100;
+      transition: transform 0.3s ease;
+    }
+
+    #cart-icon:hover {
+      transform: scale(1.1);
+    }
+
+    #cart-count {
+      position: absolute;
+      top: 5px;
+      left: 50px;
+      background-color: #e72c27;
+      color: #fff;
+      border-radius: 9999px;
+      padding: 2px 6px;
+      font-size: 14px;
+      line-height: 1;
+      min-width: 24px;
+      text-align: center;
+      pointer-events: none;
+    }
+
+    #logo {
+      text-align: center;
+      margin: 0;
+    }
+
+    #logo-img {
+      width: 150px;
+    }
+
+    h2 {
+      margin-top: 40px;
+      margin-bottom: 20px;
+      font-size: 24px;
+    }
+
+    form {
+      max-width: 500px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    form input,
+    form textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 5px 0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 16px;
+    }
+
+    form button {
+      padding: 10px;
+      background-color: #629671;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      border-radius: 4px;
+      font-size: 16px;
+      margin-top: 10px;
+    }
+
+    form button:hover {
+      background-color: #497453;
+    }
+
+    .message {
+      margin-top: 10px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <aside class="sidebar">
+      <ul>
+        <li><a href="index.html">خانه</a></li>
+        <li><a href="index.html">محصولات</a></li>
+        <li><a href="login.html">ورود/ثبت‌نام</a></li>
+        <li><a href="add-product.html">افزودن محصول</a></li>
+      </ul>
+    </aside>
+    <main class="main-content">
+      <div style="position: relative;">
+        <a href="cart.html">
+          <img id="cart-icon" src="Images/cart.webp" alt="سبد خرید" />
+          <p id="cart-count">0</p>
+        </a>
+        <div id="logo">
+          <img id="logo-img" src="Images/logo.png" alt="لوگو" />
+        </div>
+      </div>
+      <h2>افزودن محصول جدید</h2>
+      <form id="product-form">
+        <input type="text" id="product-name" placeholder="نام محصول" required />
+        <input type="number" id="product-price" placeholder="قیمت (تومان)" required />
+        <input type="text" id="product-image" placeholder="نام فایل تصویر (مثلاً cloth7.jpg)" required />
+        <textarea id="product-description" placeholder="شرح محصول" rows="4"></textarea>
+        <input type="text" id="product-fit" placeholder="تن‌خوری (اختیاری)" />
+        <textarea id="product-details" placeholder="مشخصات محصول (اختیاری)" rows="4"></textarea>
+        <input type="text" id="product-usage" placeholder="مورد استفاده (اختیاری)" />
+        <button type="submit">اضافه کردن محصول</button>
+        <p id="product-message" class="message"></p>
+      </form>
+    </main>
+  </div>
+  <footer style="background-color:#f4f4f4;padding:20px;text-align:center;border-top:1px solid #ddd;margin-top:20px;">
+    <h1>HACOUPIAN 1970</h1>
+    <p>
+      اکنون با نیم قرن تجربه، هاکوپیان دیگر فقط عرضه‌کننده‌ی یک کالا نیست،
+      بلکه نمادی از یک برند فاخر و خوش نام ایرانی است؛ زیرا باور دارد ایرانیان
+      از دیرباز یکی از شیک‌پوش‌ترین مردمان جهان بوده و هستند و همواره کوشیده
+      تا سلیقه‌های گوناگون ایشان را در طراحی‌های خود مدنظر قرار دهد. هاکوپیان
+      سال‌هاست در طراحی و تولید به آفرینش زیبایی می‌اندیشد.
+    </p>
+    <ul style="list-style:none;padding:0;margin:10px 0;">
+      <li style="display:inline;margin:0 15px;"><a href="index.html" style="text-decoration:none;color:#6a6a6a;">صفحه
+          اصلی</a></li>
+      <li style="display:inline;margin:0 15px;"><a href="#" style="text-decoration:none;color:#6a6a6a;">محصولات</a></li>
+      <li style="display:inline;margin:0 15px;"><a href="#" style="text-decoration:none;color:#6a6a6a;">درباره ما</a>
+      </li>
+      <li style="display:inline;margin:0 15px;"><a href="#" style="text-decoration:none;color:#6a6a6a;">تماس با ما</a>
+      </li>
+    </ul>
+    <p style="margin:30px;font-size:14px;color:#6a6a6a;">کليه حقوق محصولات و محتوای اين سایت متعلق به هاکوپیان است.</p>
+    <p style="font-size:14px;color:#6a6a6a;">&COPY; 1970-2024 Hacoupian. All rights reserved.</p>
+  </footer>
+  <script src="script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      updateCartCount();
+      const form = document.getElementById('product-form');
+      const messageEl = document.getElementById('product-message');
+      form.addEventListener('submit', async function (e) {
+        e.preventDefault();
+        messageEl.textContent = '';
+        const name = document.getElementById('product-name').value.trim();
+        const priceStr = document.getElementById('product-price').value.trim();
+        const image = document.getElementById('product-image').value.trim();
+        const description = document.getElementById('product-description').value.trim();
+        const fit = document.getElementById('product-fit').value.trim();
+        const details = document.getElementById('product-details').value.trim();
+        const usage = document.getElementById('product-usage').value.trim();
+        const price = Number(priceStr);
+        if (!name || !price || !image) {
+          messageEl.style.color = 'red';
+          messageEl.textContent = 'لطفاً نام، قیمت و تصویر را وارد کنید.';
+          return;
+        }
+        try {
+          const res = await fetch(`${API_BASE_URL}/products`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ name, price, image, description, fit, details, usage })
+          });
+          const data = await res.json();
+          if (!res.ok) {
+            messageEl.style.color = 'red';
+            messageEl.textContent = data.message || 'خطا در افزودن محصول.';
+            return;
+          }
+          messageEl.style.color = 'green';
+          messageEl.textContent = 'محصول با موفقیت اضافه شد.';
+          // پاک کردن فرم
+          form.reset();
+        } catch (err) {
+          console.error(err);
+          messageEl.style.color = 'red';
+          messageEl.textContent = 'خطای سرور.';
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>
